@@ -3,5 +3,18 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  margin-top: 60px;
+}
+
+.home_header__title {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.home_header__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
 }
