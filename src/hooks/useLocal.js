@@ -14,5 +14,5 @@ export default function useLocal(key) {
   if (typeof key !== "string") {
     return;
   }
-  return [local, setLocal];
+  return { local, setLocal };
 }
