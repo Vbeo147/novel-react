@@ -1,4 +1,3 @@
-import useLocal from "../hooks/useLocal";
 import { useState, useRef, memo } from "react";
 
 function NovelWrite({ onClose, onWrite }) {

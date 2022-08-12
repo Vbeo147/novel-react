@@ -18,7 +18,15 @@ function Home() {
   const onWrite = (Value) => {
     setLocal((currentArray) => [Value, ...currentArray]);
   };
-  const LocalMap = local.map((item) => <li key={item.id}>{item.title}</li>);
+  const LocalMap = local.map((item) => (
+    <div key={item.id}>
+      <div>
+        <h1>{item.title}</h1>
+        <button>보기</button>
+        <button>편집</button>
+      </div>
+    </div>
+  ));
   return (
     <>
       {isRequired ? (
@@ -33,7 +41,9 @@ function Home() {
               <button onClick={() => setBtn({ ...Btn, isRequired: true })}>
                 글쓰기
               </button>
-              <button>오름차순</button>
+              <button onClick={() => setBtn({ ...Btn, sort: !sort })}>
+                {sort ? "오름차순" : "내림차순"}
+              </button>
             </div>
           </div>
           {sort ? LocalMap.sort() : LocalMap.reverse()}
