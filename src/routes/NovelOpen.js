@@ -9,7 +9,7 @@ function NovelOpen() {
     <div>
       <div>
         <h1>{Local[result].title}</h1>
-        <h4>{Local[result].title}</h4>
+        <h4>{Local[result].text}</h4>
       </div>
       <div>
         <Link to="/">
