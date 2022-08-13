@@ -3,15 +3,13 @@ import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 import NovelWrite from "../components/NovelWrite";
-import NovelUpdate from "../components/NovelUpdate";
 
 function Home() {
   const [Btn, setBtn] = useState({
     isRequired: false,
-    isUpdated: false,
     sort: false,
   });
-  const { isRequired, isUpdated, sort } = Btn;
+  const { isRequired, sort } = Btn;
   const { local, setLocal } = useLocal("Novel");
   const onClose = () => {
     setBtn({ ...Btn, isRequired: false });
@@ -25,7 +23,7 @@ function Home() {
   const LocalMap = local.map((item) => (
     <div key={item.id}>
       <div>
-        <h1>{item.title}</h1>
+        <h4>{item.title}</h4>
         <Link to={`/Open/${item.id}`}>
           <button>보기</button>
         </Link>
@@ -37,8 +35,6 @@ function Home() {
     <>
       {isRequired ? (
         <NovelWrite onClose={onClose} onWrite={onWrite} />
-      ) : isUpdated ? (
-        <NovelUpdate />
       ) : (
         <>
           <div className={style.home_header}>

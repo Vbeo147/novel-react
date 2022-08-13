@@ -1,16 +1,15 @@
+import { memo } from "react";
 import { useParams, Link } from "react-router-dom";
 
 function NovelOpen() {
   const { id } = useParams();
   const Local = JSON.parse(localStorage.getItem("Novel"));
-  const result = Local.findIndex((Info) => Info.id === id) + 1;
+  const result = Local.findIndex((Info) => parseInt(Info.id) === parseInt(id));
   return (
     <div>
       <div>
         <h1>{Local[result].title}</h1>
-      </div>
-      <div>
-        <h2>{Local[result].text}</h2>
+        <h4>{Local[result].title}</h4>
       </div>
       <div>
         <Link to="/">
@@ -21,4 +20,4 @@ function NovelOpen() {
   );
 }
 
-export default NovelOpen;
+export default memo(NovelOpen);
