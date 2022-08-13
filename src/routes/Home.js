@@ -1,5 +1,6 @@
 import style from "../css/Home.module.css";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { Link } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 import NovelWrite from "../components/NovelWrite";
 import NovelUpdate from "../components/NovelUpdate";
@@ -15,14 +16,19 @@ function Home() {
   const onClose = () => {
     setBtn({ ...Btn, isRequired: false });
   };
-  const onWrite = (Value) => {
-    setLocal((currentArray) => [Value, ...currentArray]);
-  };
+  const onWrite = useCallback(
+    (Value) => {
+      setLocal((currentArray) => [Value, ...currentArray]);
+    },
+    [setLocal]
+  );
   const LocalMap = local.map((item) => (
     <div key={item.id}>
       <div>
         <h1>{item.title}</h1>
-        <button>보기</button>
+        <Link to={`/Open/${item.id}`}>
+          <button>보기</button>
+        </Link>
         <button>편집</button>
       </div>
     </div>

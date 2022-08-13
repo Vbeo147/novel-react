@@ -1,13 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
+import NovelOpen from "./routes/NovelOpen";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route exact path="/" element={<Home />}></Route>
+        <Route path="/Open/:id" element={<NovelOpen />}></Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

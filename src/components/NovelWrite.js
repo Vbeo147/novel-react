@@ -20,7 +20,7 @@ function NovelWrite({ onClose, onWrite }) {
             e.preventDefault();
             const today = new Date();
             if (title && text) {
-              onWrite({ title, text, id: today.getMilliseconds() * 2.22 });
+              onWrite({ title, text, id: today.getMilliseconds() * 2.2 });
               onClose();
             }
           }}
