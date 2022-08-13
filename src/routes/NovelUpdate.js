@@ -32,8 +32,9 @@ function NovelUpdate() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (title && text) {
+            if (titleRef.current.value && textRef.current.value) {
               onUpdate();
+              window.location.href = "/";
             }
           }}
         >
@@ -42,12 +43,14 @@ function NovelUpdate() {
               onChange={onChange}
               type="text"
               placeholder="제목"
-              value={title || local.length !== 0 ? local[index].title : ""}
+              value={
+                title ? title : local.length !== 0 ? local[index].title : ""
+              }
               ref={titleRef}
             />
             <textarea
               onChange={onChange}
-              value={text || local.length !== 0 ? local[index].text : ""}
+              value={text ? text : local.length !== 0 ? local[index].text : ""}
               ref={textRef}
             ></textarea>
           </div>
