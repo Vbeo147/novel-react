@@ -24,10 +24,12 @@ function Home() {
     <div key={item.id}>
       <div>
         <h4>{item.title}</h4>
-        <Link to={`/Open/${item.id}`}>
+        <Link to={`/open/${item.id}`}>
           <button>보기</button>
         </Link>
-        <button>편집</button>
+        <Link to={`/update/${item.id}`}>
+          <button>편집</button>
+        </Link>
       </div>
     </div>
   ));
