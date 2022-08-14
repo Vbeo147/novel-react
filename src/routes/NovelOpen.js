@@ -11,18 +11,18 @@ function NovelOpen() {
     <div className={style.open_header}>
       <div className={style.open_header__title}>
         <div>{Local[result].title}</div>
+        <div className={style.open_header__btn}>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <i class="fa-solid fa-arrow-left-long"></i>
+          </button>
+        </div>
       </div>
       <div className={style.open_header__text}>
         <p>{Local[result].text}</p>
-      </div>
-      <div className={style.open_header__btn}>
-        <button
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Close
-        </button>
       </div>
     </div>
   );

@@ -53,17 +53,6 @@ button {
   width: 100%;
 }
 
-@keyframes HomeButton {
-  0% {
-    border: 1px solid lightgrey;
-    transform: none;
-  }
-  100% {
-    border: 1px solid lightgrey;
-    transform: scale(1.1);
-  }
-}
-
 .home_header__btn button {
   align-self: center;
   background-color: #fff;

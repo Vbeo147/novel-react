@@ -2,7 +2,7 @@ import { useState, useRef, memo, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
-function NovelUpdate() {
+function NovelModify() {
   const [Value, setValue] = useState({ title: "", text: "" });
   const { title, text } = Value;
   const { id } = useParams();
@@ -32,7 +32,7 @@ function NovelUpdate() {
   return (
     <div>
       <div>
-        <h1>Novel Update</h1>
+        <h1>Novel Modify</h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -74,4 +74,4 @@ function NovelUpdate() {
   );
 }
 
-export default memo(NovelUpdate);
+export default memo(NovelModify);

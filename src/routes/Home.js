@@ -35,10 +35,10 @@ function Home() {
       <div className={style.home_list__btn}>
         <button
           onClick={() => {
-            navigate(`/update/${item.id}`);
+            navigate(`/modify/${item.id}`);
           }}
         >
-          Update
+          Modify
         </button>
       </div>
     </div>
