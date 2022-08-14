@@ -8,10 +8,10 @@ function NovelOpen() {
   const Local = JSON.parse(localStorage.getItem("Novel"));
   const result = Local.findIndex((Info) => parseInt(Info.id) === parseInt(id));
   return (
-    <div>
-      <div>
-        <h1>{Local[result].title}</h1>
-        <h4>{Local[result].text}</h4>
+    <div className={style.open_header}>
+      <div className={style.open_header__main}>
+        <div>{Local[result].title}</div>
+        <div>{Local[result].text}</div>
       </div>
       <div>
         <button

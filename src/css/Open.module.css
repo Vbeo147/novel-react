@@ -1,0 +1,13 @@
+.open_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.open_header__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
