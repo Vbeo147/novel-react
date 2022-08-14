@@ -13,7 +13,7 @@ function NovelOpen() {
         <div>{Local[result].title}</div>
       </div>
       <div className={style.open_header__text}>
-        <div>{Local[result].text}</div>
+        <p>{Local[result].text}</p>
       </div>
       <div className={style.open_header__btn}>
         <button

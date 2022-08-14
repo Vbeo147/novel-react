@@ -1,5 +1,5 @@
 import { useState, useRef, memo, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
 function NovelUpdate() {
@@ -9,6 +9,7 @@ function NovelUpdate() {
   const { local, setLocal } = useLocal("Novel");
   const titleRef = useRef();
   const textRef = useRef();
+  const navigate = useNavigate();
   const onChange = () => {
     setValue({
       title: titleRef.current.value,
@@ -59,9 +60,13 @@ function NovelUpdate() {
           </div>
           <div>
             <button type="submit">Enter</button>
-            <Link to="/">
-              <button>Close</button>
-            </Link>
+            <button
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Close
+            </button>
           </div>
         </form>
       </div>
