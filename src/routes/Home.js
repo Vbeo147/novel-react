@@ -1,6 +1,6 @@
 import style from "../css/Home.module.css";
 import { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 import NovelWrite from "../components/NovelWrite";
 
@@ -20,16 +20,26 @@ function Home() {
     },
     [setLocal]
   );
+  const navigate = useNavigate();
   const LocalMap = local.map((item) => (
-    <div key={item.id}>
-      <div>
-        <h4>{item.title}</h4>
-        <Link to={`/open/${item.id}`}>
-          <button>보기</button>
-        </Link>
-        <Link to={`/update/${item.id}`}>
-          <button>편집</button>
-        </Link>
+    <div className={style.home_list} key={item.id}>
+      <div className={style.home_list__title}>
+        <button
+          onClick={() => {
+            navigate(`/open/${item.id}`);
+          }}
+        >
+          {item.title}
+        </button>
+      </div>
+      <div className={style.home_list__btn}>
+        <button
+          onClick={() => {
+            navigate(`/update/${item.id}`);
+          }}
+        >
+          Update
+        </button>
       </div>
     </div>
   ));
@@ -40,13 +50,18 @@ function Home() {
       ) : (
         <>
           <div className={style.home_header}>
-            <h1 className={style.home_header__title}>Novel</h1>
+            <div className={style.home_header__title}>
+              <div className={style.home_header__title_main}>Novel</div>
+              <p className={style.home_header__title_sub}>
+                My nickname is Vbeo, this is my first github javascript project!
+              </p>
+            </div>
             <div className={style.home_header__btn}>
               <button onClick={() => setBtn({ ...Btn, isRequired: true })}>
-                글쓰기
+                Write
               </button>
               <button onClick={() => setBtn({ ...Btn, sort: !sort })}>
-                {sort ? "오름차순" : "내림차순"}
+                {sort ? "Sort" : "Not Sort"}
               </button>
             </div>
           </div>

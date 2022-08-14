@@ -1,8 +1,10 @@
+import style from "../css/Open.module.css";
 import { memo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function NovelOpen() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const Local = JSON.parse(localStorage.getItem("Novel"));
   const result = Local.findIndex((Info) => parseInt(Info.id) === parseInt(id));
   return (
@@ -12,9 +14,13 @@ function NovelOpen() {
         <h4>{Local[result].text}</h4>
       </div>
       <div>
-        <Link to="/">
-          <button>Close</button>
-        </Link>
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Close
+        </button>
       </div>
     </div>
   );
