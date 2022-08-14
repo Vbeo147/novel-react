@@ -3,11 +3,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-.open_header__main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.open_header__title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 60px;
+  width: 40%;
+  border: 1px solid black;
+  user-select: none;
+  text-align: center;
+}
+
+.open_header__text {
+  font-size: 20px;
+  word-wrap: break-word;
+  margin-top: 90px;
+  width: 75%;
+  height: auto;
+  padding: 20px;
+  border: 1px solid black;
+  user-select: none;
+}
+
+.open_header__btn {
+  margin-top: 40px;
 }
