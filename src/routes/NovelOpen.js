@@ -17,7 +17,7 @@ function NovelOpen() {
               navigate("/");
             }}
           >
-            <i class="fa-solid fa-arrow-left-long"></i>
+            <i className="fa-solid fa-arrow-left-long"></i>
           </button>
         </div>
       </div>

@@ -33,11 +33,12 @@
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 15px;
   font-size: 16px;
+  line-height: 160%;
 }
 
 .open_header__btn {
   position: fixed;
-  left: 400px;
+  left: 350px;
 }
 
 .open_header__btn button {
