@@ -50,7 +50,7 @@ function Home() {
               </button>
             </div>
           </div>
-          {sort ? LocalMap.sort() : LocalMap.reverse()}
+          <div>{sort ? LocalMap.sort() : LocalMap.reverse()}</div>
         </>
       )}
     </>
