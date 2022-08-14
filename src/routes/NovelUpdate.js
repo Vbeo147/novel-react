@@ -1,4 +1,4 @@
-import { useState, useRef, memo } from "react";
+import { useState, useRef, memo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
@@ -25,6 +25,9 @@ function NovelUpdate() {
     });
     setLocal(newLocal);
   };
+  useEffect(() => {
+    setValue({ title: local[index].title, text: local[index].text });
+  }, [local, index]);
   return (
     <div>
       <div>
@@ -42,19 +45,18 @@ function NovelUpdate() {
             <input
               onChange={onChange}
               type="text"
-              placeholder="제목"
-              value={
-                title ? title : local.length !== 0 ? local[index].title : ""
-              }
+              placeholder={title ? "제목" : ""}
+              value={title}
               ref={titleRef}
+              required
             />
             <textarea
               onChange={onChange}
-              value={text ? text : local.length !== 0 ? local[index].text : ""}
+              value={text}
               ref={textRef}
+              required
             ></textarea>
           </div>
-
           <div>
             <button type="submit">Enter</button>
             <Link to="/">

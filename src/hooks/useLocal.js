@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 export default function useLocal(key) {
-  const [local, setLocal] = useState([]);
+  const [local, setLocal] = useState(
+    localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : []
+  );
   useEffect(() => {
     const Local = localStorage.getItem(key);
     if (Local) {

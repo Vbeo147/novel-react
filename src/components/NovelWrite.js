@@ -19,10 +19,8 @@ function NovelWrite({ onClose, onWrite }) {
           onSubmit={(e) => {
             e.preventDefault();
             const today = new Date();
-            if (title && text) {
-              onWrite({ title, text, id: today.getMilliseconds() * 1.5 });
-              onClose();
-            }
+            onWrite({ title, text, id: today.getMilliseconds() * 1.5 });
+            onClose();
           }}
         >
           <div>
@@ -31,8 +29,9 @@ function NovelWrite({ onClose, onWrite }) {
               type="text"
               placeholder="제목"
               ref={titleRef}
+              required
             />
-            <textarea onChange={onChange} ref={textRef}></textarea>
+            <textarea onChange={onChange} ref={textRef} required></textarea>
           </div>
           <div>
             <button type="submit">Enter</button>
