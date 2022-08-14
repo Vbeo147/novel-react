@@ -1,4 +1,4 @@
-import { useState, useRef, memo, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
@@ -74,4 +74,4 @@ function NovelModify() {
   );
 }
 
-export default memo(NovelModify);
+export default NovelModify;

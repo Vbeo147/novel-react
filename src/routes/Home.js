@@ -11,16 +11,16 @@ function Home() {
   });
   const { isRequired, sort } = Btn;
   const { local, setLocal } = useLocal("Novel");
-  const onClose = () => {
+  const navigate = useNavigate();
+  const onClose = useCallback(() => {
     setBtn({ ...Btn, isRequired: false });
-  };
+  }, [Btn]);
   const onWrite = useCallback(
     (Value) => {
       setLocal((currentArray) => [Value, ...currentArray]);
     },
     [setLocal]
   );
-  const navigate = useNavigate();
   const LocalMap = local.map((item) => (
     <div className={style.home_list} key={item.id}>
       <div className={style.home_list__title}>

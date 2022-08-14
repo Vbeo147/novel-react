@@ -1,5 +1,4 @@
 import style from "../css/Open.module.css";
-import { memo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 function NovelOpen() {
@@ -28,4 +27,4 @@ function NovelOpen() {
   );
 }
 
-export default memo(NovelOpen);
+export default NovelOpen;

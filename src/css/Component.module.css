@@ -1,0 +1,36 @@
+.component_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.component_column__title {
+  margin: 80px 0px 60px 0px;
+  font-size: 30px;
+}
+
+.component_column__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.component_column__form_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.component_column__form_header input {
+  margin-bottom: 20px;
+}
+
+.component_column__form_header textarea {
+  resize: none;
+  width: 600px;
+  height: 400px;
+}
