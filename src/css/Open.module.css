@@ -9,36 +9,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: 600;
   margin-top: 60px;
   width: 40%;
   height: 60px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   user-select: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 15px;
 }
 
 .open_header__text {
-  font-size: 20px;
+  font-size: 17px;
+  font-weight: 600;
   word-wrap: break-word;
   margin-top: 90px;
-  width: 50%;
-  height: auto;
+  width: 700px;
+  height: 400px;
   padding: 20px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   user-select: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 15px;
-  font-size: 16px;
   line-height: 160%;
 }
 
 .open_header__btn {
   position: fixed;
-  left: 350px;
+  margin-right: 55%;
 }
 
 .open_header__btn button {
@@ -46,15 +43,14 @@
   border-radius: 30px;
   width: 80px;
   height: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
 .open_header__btn button:hover {
-  border: 2px solid gray;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .open_header__btn button:active {
-  border: 1px solid gray;
-  background-color: lightgray;
   transform: scale(0.9);
 }

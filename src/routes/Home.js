@@ -1,4 +1,5 @@
 import style from "../css/Home.module.css";
+import "../css/reset.css";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";

@@ -1,10 +1,11 @@
+import style from "../css/Component.module.css";
 import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
 function NovelModify() {
-  const [Value, setValue] = useState({ title: "", text: "" });
-  const { title, text } = Value;
+  const [Value, setValue] = useState({ title: "", text: "", isDelete: false });
+  const { title, text, isDelete } = Value;
   const { id } = useParams();
   const { local, setLocal } = useLocal("Novel");
   const titleRef = useRef();
@@ -26,50 +27,76 @@ function NovelModify() {
     });
     setLocal(newLocal);
   };
+  const onDelete = () => {
+    const removeItem = local.filter((Value) => {
+      return Value.id !== id;
+    });
+    setLocal(removeItem);
+  };
   useEffect(() => {
     setValue({ title: local[index].title, text: local[index].text });
   }, [local, index]);
   return (
-    <div>
-      <div>
-        <h1>Novel Modify</h1>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (titleRef.current.value && textRef.current.value) {
-              onUpdate();
-              window.location.href = "/";
-            }
+    <div className={style.component_column}>
+      <form
+        className={style.component_column__form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (titleRef.current.value && textRef.current.value) {
+            onUpdate();
+            window.location.href = "/";
+          }
+        }}
+      >
+        <div className={style.component_column__form_title}>
+          <h1>Novel Modify</h1>
+          <input
+            onChange={onChange}
+            type="text"
+            placeholder={title ? "제목" : ""}
+            value={title}
+            ref={titleRef}
+            required
+          />
+        </div>
+        <button
+          onClick={() => {
+            navigate("/");
           }}
         >
-          <div>
-            <input
-              onChange={onChange}
-              type="text"
-              placeholder={title ? "제목" : ""}
-              value={title}
-              ref={titleRef}
-              required
-            />
-            <textarea
-              onChange={onChange}
-              value={text}
-              ref={textRef}
-              required
-            ></textarea>
-          </div>
-          <div>
-            <button type="submit">Enter</button>
+          <i className="fa-solid fa-arrow-left-long"></i>
+        </button>
+        <div className={style.component_column__form_text}>
+          <textarea
+            onChange={onChange}
+            value={text}
+            ref={textRef}
+            required
+          ></textarea>
+          <button type="submit">Enter</button>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setValue({ ...Value, isDelete: true });
+          }}
+          className={style.component_column__btn_sm}
+        >
+          Delete
+        </button>
+        {isDelete ? (
+          <div className={style.modify_delete}>
             <button
               onClick={() => {
-                navigate("/");
+                onDelete();
+                window.location.href = "/";
               }}
             >
-              Close
+              Delete True?
             </button>
           </div>
-        </form>
-      </div>
+        ) : null}
+      </form>
     </div>
   );
 }

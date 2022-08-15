@@ -14,19 +14,21 @@ function NovelWrite({ onClose, onWrite }) {
   };
   return (
     <div className={style.component_column}>
-      <div className={style.component_column__title}>
-        <h1>NovelWrite</h1>
-      </div>
       <form
         className={style.component_column__form}
         onSubmit={(e) => {
           e.preventDefault();
           const today = new Date();
-          onWrite({ title, text, id: today.getMilliseconds() * 1.5 });
+          onWrite({
+            title,
+            text,
+            id: JSON.stringify(today.getMilliseconds() * 1.5),
+          });
           onClose();
         }}
       >
-        <div className={style.component_column__form_header}>
+        <div className={style.component_column__form_title}>
+          <h1>NovelWrite</h1>
           <input
             onChange={onChange}
             type="text"
@@ -34,17 +36,17 @@ function NovelWrite({ onClose, onWrite }) {
             ref={titleRef}
             required
           />
-          <textarea onChange={onChange} ref={textRef} required></textarea>
         </div>
-        <div>
+        <button
+          onClick={() => {
+            onClose();
+          }}
+        >
+          <i className="fa-solid fa-arrow-left-long"></i>
+        </button>
+        <div className={style.component_column__form_text}>
+          <textarea onChange={onChange} ref={textRef} required></textarea>
           <button type="submit">Enter</button>
-          <button
-            onClick={() => {
-              onClose();
-            }}
-          >
-            Close
-          </button>
         </div>
       </form>
     </div>
