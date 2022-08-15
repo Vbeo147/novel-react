@@ -30,7 +30,17 @@ function Home() {
             navigate(`/open/${item.id}`);
           }}
         >
-          {item.title}
+          <p
+            style={{
+              textAlign: "start",
+              width: "85%",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {item.title}
+          </p>
         </button>
       </div>
       <div className={style.home_list__btn}>

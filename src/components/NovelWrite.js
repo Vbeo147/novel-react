@@ -1,17 +1,17 @@
 import style from "../css/Component.module.css";
-import { useState, useRef, memo } from "react";
+import { useCallback, useState, useRef, memo } from "react";
 
 function NovelWrite({ onClose, onWrite }) {
   const [Value, setValue] = useState({ title: "", text: "" });
   const titleRef = useRef();
   const textRef = useRef();
   const { title, text } = Value;
-  const onChange = () => {
+  const onChange = useCallback(() => {
     setValue({
       title: titleRef.current.value,
       text: textRef.current.value,
     });
-  };
+  }, []);
   return (
     <div className={style.component_column}>
       <form

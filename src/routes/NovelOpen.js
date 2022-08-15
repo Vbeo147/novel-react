@@ -9,7 +9,17 @@ function NovelOpen() {
   return (
     <div className={style.open_header}>
       <div className={style.open_header__title}>
-        <div>{Local[result].title}</div>
+        <p
+          style={{
+            textAlign: "center",
+            width: "85%",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {Local[result].title}
+        </p>
         <div className={style.open_header__btn}>
           <button
             onClick={() => {

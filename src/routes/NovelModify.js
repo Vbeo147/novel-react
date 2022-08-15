@@ -1,5 +1,5 @@
 import style from "../css/Component.module.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
 
@@ -11,14 +11,14 @@ function NovelModify() {
   const titleRef = useRef();
   const textRef = useRef();
   const navigate = useNavigate();
-  const onChange = () => {
+  const onChange = useCallback(() => {
     setValue({
       title: titleRef.current.value,
       text: textRef.current.value,
     });
-  };
+  }, []);
   const index = local.findIndex((Info) => parseInt(Info.id) === parseInt(id));
-  const onUpdate = () => {
+  const onUpdate = useCallback(() => {
     const newLocal = [...local];
     newLocal.splice(index, 1, {
       title: title,
@@ -26,13 +26,13 @@ function NovelModify() {
       id: id,
     });
     setLocal(newLocal);
-  };
-  const onDelete = () => {
+  }, [title, text, id, local, setLocal, index]);
+  const onDelete = useCallback(() => {
     const removeItem = local.filter((Value) => {
       return Value.id !== id;
     });
     setLocal(removeItem);
-  };
+  }, [local, setLocal, id]);
   useEffect(() => {
     setValue({ title: local[index].title, text: local[index].text });
   }, [local, index]);
