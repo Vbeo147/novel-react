@@ -53,7 +53,7 @@ function NovelModify() {
           <input
             onChange={onChange}
             type="text"
-            placeholder={title ? "제목" : ""}
+            placeholder={title ? "" : "제목"}
             value={title}
             ref={titleRef}
             required
@@ -86,14 +86,26 @@ function NovelModify() {
         </button>
         {isDelete ? (
           <div className={style.modify_delete}>
-            <button
-              onClick={() => {
-                onDelete();
-                window.location.href = "/";
-              }}
-            >
-              Delete True?
-            </button>
+            <div className={style.modify_delete__main}>
+              <h1>Delete True?</h1>
+              <div className={style.modify_delete__btn}>
+                <button
+                  onClick={() => {
+                    onDelete();
+                    window.location.href = "/";
+                  }}
+                >
+                  True
+                </button>
+                <button
+                  onClick={() => {
+                    setValue({ ...Value, isDelete: false });
+                  }}
+                >
+                  False
+                </button>
+              </div>
+            </div>
           </div>
         ) : null}
       </form>

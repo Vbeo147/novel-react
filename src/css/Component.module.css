@@ -36,6 +36,7 @@
   width: 80px;
   height: 50px;
   top: 80px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
 }
 
@@ -63,6 +64,10 @@
 
 .component_column__form_title input:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.component_column__form_title input::placeholder {
+  text-align: center;
 }
 
 .component_column__form_text {
@@ -133,15 +138,85 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   top: 0;
-  animation: DeleteAnimation 1s linear forwards;
+  animation: DeleteAnimation 0.3s linear forwards;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.modify_delete button {
-  width: 100px;
-  height: 50px;
+@keyframes appearBtnAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modify_delete__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 20%;
+  background-color: rgba(255, 0, 0, 0.3);
   border-radius: 10px;
-  margin: auto;
-  z-index: 1;
+  opacity: 0.75;
+  transform: translateY(180px);
+  animation: appearBtnAnimation 0.2s linear forwards;
+}
+
+.modify_delete__main h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 45px;
+  user-select: none;
+}
+
+.modify_delete__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+
+.modify_delete__btn button {
+  width: 90px;
+  height: 35px;
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.modify_delete__btn button:hover,
+.modify_delete__btn button:active {
+  background-color: initial;
+  background-position: 0 0;
+}
+
+.modify_delete__btn button:active {
+  opacity: 0.5;
 }
