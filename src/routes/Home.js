@@ -7,14 +7,14 @@ import NovelWrite from "../components/NovelWrite";
 
 function Home() {
   const [Btn, setBtn] = useState({
-    isRequired: false,
+    Seleted: false,
     sort: false,
   });
-  const { isRequired, sort } = Btn;
+  const { Seleted, sort } = Btn;
   const { local, setLocal } = useLocal("Novel");
   const navigate = useNavigate();
   const onClose = useCallback(() => {
-    setBtn({ ...Btn, isRequired: false });
+    setBtn({ ...Btn, Seleted: false });
   }, [Btn]);
   const onWrite = useCallback(
     (Value) => {
@@ -56,7 +56,7 @@ function Home() {
   ));
   return (
     <>
-      {isRequired ? (
+      {Seleted ? (
         <NovelWrite onClose={onClose} onWrite={onWrite} />
       ) : (
         <>
@@ -68,7 +68,7 @@ function Home() {
               </p>
             </div>
             <div className={style.home_header__btn}>
-              <button onClick={() => setBtn({ ...Btn, isRequired: true })}>
+              <button onClick={() => setBtn({ ...Btn, Seleted: true })}>
                 Write
               </button>
               <button onClick={() => setBtn({ ...Btn, sort: !sort })}>
