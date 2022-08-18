@@ -2,10 +2,16 @@ import style from "../css/Component.module.css";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useLocal from "../hooks/useLocal";
+import Image from "../components/Image";
 
 function NovelModify() {
-  const [Value, setValue] = useState({ title: "", text: "", isDelete: false });
-  const { title, text, isDelete } = Value;
+  const [Value, setValue] = useState({
+    title: "",
+    text: "",
+    img: "",
+    isDelete: false,
+  });
+  const { title, text, img, isDelete } = Value;
   const { id } = useParams();
   const { local, setLocal } = useLocal("Novel");
   const titleRef = useRef();
@@ -23,10 +29,11 @@ function NovelModify() {
     newLocal.splice(index, 1, {
       title: title,
       text: text,
+      img: img,
       id: id,
     });
     setLocal(newLocal);
-  }, [title, text, id, local, setLocal, index]);
+  }, [title, text, img, id, local, setLocal, index]);
   const onDelete = useCallback(() => {
     const removeItem = local.filter((Value) => {
       return Value.id !== id;
@@ -36,6 +43,7 @@ function NovelModify() {
   useEffect(() => {
     setValue({ title: local[index].title, text: local[index].text });
   }, [local, index]);
+  const setImageFromFile = Image();
   return (
     <div className={style.component_column}>
       <form
@@ -66,6 +74,37 @@ function NovelModify() {
         >
           <i className="fa-solid fa-arrow-left-long"></i>
         </button>
+        <div className={style.component_column__form_img}>
+          <label htmlFor="somenail">
+            {img ? (
+              <img
+                style={{
+                  width: "70px",
+                  height: "70px",
+                  borderRadius: "10px",
+                  marginTop: "15px",
+                }}
+                src={img}
+                alt="img"
+              />
+            ) : (
+              "Selete Picture"
+            )}
+          </label>
+          <input
+            id="somenail"
+            type="file"
+            onChange={({ target: { files } }) => {
+              if (files.length) {
+                setImageFromFile({
+                  file: files[0],
+                  setImageUrl: ({ result }) =>
+                    setValue({ ...Value, img: result }),
+                });
+              }
+            }}
+          />
+        </div>
         <div className={style.component_column__form_text}>
           <textarea
             onChange={onChange}

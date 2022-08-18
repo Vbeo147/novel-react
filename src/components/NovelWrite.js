@@ -1,17 +1,20 @@
 import style from "../css/Component.module.css";
 import { useCallback, useState, useRef, memo } from "react";
+import Image from "./Image";
 
 function NovelWrite({ onClose, onWrite }) {
-  const [Value, setValue] = useState({ title: "", text: "" });
+  const [Value, setValue] = useState({ title: "", text: "", img: "" });
   const titleRef = useRef();
   const textRef = useRef();
-  const { title, text } = Value;
+  const { title, text, img } = Value;
   const onChange = useCallback(() => {
     setValue({
+      ...Value,
       title: titleRef.current.value,
       text: textRef.current.value,
     });
-  }, []);
+  }, [Value]);
+  const setImageFromFile = Image();
   return (
     <div className={style.component_column}>
       <form
@@ -22,6 +25,7 @@ function NovelWrite({ onClose, onWrite }) {
           onWrite({
             title,
             text,
+            img,
             id: JSON.stringify(today.getMilliseconds() * 1.5),
           });
           onClose();
@@ -44,6 +48,22 @@ function NovelWrite({ onClose, onWrite }) {
         >
           <i className="fa-solid fa-arrow-left-long"></i>
         </button>
+        <div>
+          <label htmlFor="somenail">썸네일</label>
+          <input
+            id="somenail"
+            type="file"
+            onChange={({ target: { files } }) => {
+              if (files.length) {
+                setImageFromFile({
+                  file: files[0],
+                  setImageUrl: ({ result }) =>
+                    setValue({ ...Value, img: result }),
+                });
+              }
+            }}
+          />
+        </div>
         <div className={style.component_column__form_text}>
           <textarea onChange={onChange} ref={textRef} required></textarea>
           <button type="submit">Enter</button>

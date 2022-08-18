@@ -26,10 +26,24 @@ function Home() {
     <div className={style.home_list} key={item.id}>
       <div className={style.home_list__title}>
         <button
+          title={item.title}
           onClick={() => {
             navigate(`/open/${item.id}`);
           }}
         >
+          {item.img ? (
+            <img
+              style={{
+                width: "35px",
+                height: "35px",
+                borderRadius: "11px",
+                border: "2px solid lightgray",
+                marginRight: "10px",
+              }}
+              src={item.img}
+              alt="Img"
+            />
+          ) : null}
           <p
             style={{
               textAlign: "start",

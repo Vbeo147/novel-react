@@ -70,6 +70,29 @@
   text-align: center;
 }
 
+.component_column__form_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed lightgray;
+  height: 100px;
+}
+
+.component_column__form_img label {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 100px;
+  font-size: 20px;
+}
+
+.component_column__form_img input {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+}
+
 .component_column__form_text {
   display: flex;
   flex-direction: column;
@@ -85,6 +108,7 @@
   height: 400px;
   padding: 16px;
   border: 1px solid lightgray;
+  margin-top: 40px;
   margin-bottom: 40px;
   font-size: 17px;
   font-weight: 600;
@@ -160,7 +184,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20%;
+  height: 160px;
   width: 20%;
   background-color: rgba(255, 0, 0, 0.3);
   border-radius: 10px;
@@ -185,7 +209,7 @@
 }
 
 .modify_delete__btn button {
-  width: 90px;
+  width: 40%;
   height: 35px;
   background: #ff4742;
   border: 1px solid #ff4742;
