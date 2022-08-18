@@ -28,7 +28,7 @@ function Home() {
         <button
           title={item.title}
           onClick={() => {
-            navigate(`/open/${item.id}`);
+            navigate(`/novel/${item.id}`);
           }}
         >
           {item.img ? (

@@ -48,8 +48,23 @@ function NovelWrite({ onClose, onWrite }) {
         >
           <i className="fa-solid fa-arrow-left-long"></i>
         </button>
-        <div>
-          <label htmlFor="somenail">썸네일</label>
+        <div className={style.component_column__form_img}>
+          <label htmlFor="somenail">
+            {img ? (
+              <img
+                style={{
+                  width: "70px",
+                  height: "70px",
+                  borderRadius: "10px",
+                  marginTop: "15px",
+                }}
+                src={img}
+                alt="img"
+              />
+            ) : (
+              "Selete Picture"
+            )}
+          </label>
           <input
             id="somenail"
             type="file"
