@@ -38,7 +38,8 @@ function Home() {
                 height: "35px",
                 borderRadius: "11px",
                 border: "2px solid lightgray",
-                marginRight: "10px",
+                boxShadow: "rgba(0, 0, 0, 0.5) 1px 2px 4px",
+                margin: "auto 15px auto 0px",
               }}
               src={item.img}
               alt="Img"

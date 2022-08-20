@@ -29,7 +29,7 @@ function NovelModify() {
     newLocal.splice(index, 1, {
       title: title,
       text: text,
-      img: img,
+      img: img ? img : local[index].img,
       id: id,
     });
     setLocal(newLocal);
@@ -123,6 +123,8 @@ function NovelModify() {
         >
           Delete
         </button>
+        <br />
+        <br />
         {isDelete ? (
           <div className={style.modify_delete}>
             <div className={style.modify_delete__main}>
