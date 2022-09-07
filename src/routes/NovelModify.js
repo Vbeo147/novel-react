@@ -94,6 +94,7 @@ function NovelModify() {
           <input
             id="somenail"
             type="file"
+            accept="image/*"
             onChange={({ target: { files } }) => {
               if (files.length) {
                 setImageFromFile({

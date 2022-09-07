@@ -68,6 +68,7 @@ function NovelWrite({ onClose, onWrite }) {
           <input
             id="somenail"
             type="file"
+            accept="image/*"
             onChange={({ target: { files } }) => {
               if (files.length) {
                 setImageFromFile({
